@@ -1,0 +1,21 @@
+import java.util.*;
+class Solution {
+    public int solution(String[][] clothes) {
+        int answer = 1;
+        Map<String, Integer> map = new HashMap<>();
+        
+        for(String[] a : clothes){
+            map.put(a[1],map.getOrDefault(a[1],0)+1);
+        }
+         
+		for(String k : map.keySet()) {
+			if(map.size()==1) {
+				answer=map.get(k)+1;
+				break;
+			}
+			answer*=map.get(k)+1;
+		}
+		answer--;
+        return answer;
+    }
+}
